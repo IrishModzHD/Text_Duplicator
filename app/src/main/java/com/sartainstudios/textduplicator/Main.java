@@ -1,5 +1,4 @@
 package com.sartainstudios.textduplicator;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,42 +17,46 @@ public class Main extends AppCompatActivity {
     EditText multiplier;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         defineValues();
         click();
     }
 
-    public void click() {
-        calculate.setOnClickListener(new View.OnClickListener() {
+    public void click()
+	{
+        calculate.setOnClickListener(new View.OnClickListener()
+		{
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+			{
                 textToDuplicate = mainInput.getText().toString();
                 numberHolder = multiplier.getText().toString();
                 numberToMultiplyBy = Integer.parseInt(numberHolder);
                 calculating();
-                settingText();
             }
         });
-
     }
 
-    public void calculating() {
-        int i = 1;
-        while (i < numberToMultiplyBy){
-            textToDuplicate+= textToDuplicate;
-            i++;
-        }
-
+    public void calculating()
+	{
+		String duptextToDuplicate = textToDuplicate; //Have some sort of constant for the variable to reflect back to when duplicating, instead of taking whats changed and adding that
+		for (int i = 1; i < numberToMultiplyBy; i++)
+		{
+			textToDuplicate+= duptextToDuplicate;
+		}
+		settingText();
     }
 
-    public void settingText() {
+    public void settingText()
+	{
         resultsDisplay.setText(textToDuplicate);
     }
 
-    public void defineValues() {
+    public void defineValues()
+	{
         mainInput = (EditText) findViewById(R.id.text_to_duplicate_edit_text);
         multiplier = (EditText) findViewById(R.id.duplication_number_edit_text);
         calculate = (Button) findViewById(R.id.duplicate_button);
