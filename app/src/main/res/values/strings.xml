@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Text Duplicator</string>
+    <string name="title">@string/app_name</string>
+
+    <string name="duplicate">Duplicate</string>
+
+    <string name="text_to_duplicate">Text to Duplicate</string>
+    <string name="duplication_number">Number of times to duplicate</string>
+    <string name="duplicate_button">@string/duplicate</string>
+</resources>
