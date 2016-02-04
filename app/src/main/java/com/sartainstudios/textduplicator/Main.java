@@ -22,13 +22,8 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainInput = (EditText) findViewById(R.id.text_to_duplicate_edit_text);
-        multiplier = (EditText) findViewById(R.id.duplication_number_edit_text);
-        calculate = (Button) findViewById(R.id.duplicate_button);
-        resultsDisplay = (TextView) findViewById(R.id.results_printed);
-
+        defineValues();
         click();
-
     }
 
     public void click() {
@@ -38,20 +33,30 @@ public class Main extends AppCompatActivity {
                 textToDuplicate = mainInput.getText().toString();
                 numberHolder = multiplier.getText().toString();
                 numberToMultiplyBy = Integer.parseInt(numberHolder);
-                //calculating();
+                calculating();
                 settingText();
             }
         });
 
     }
 
-    public void calculating(){
-        for (int i = 0; i <= numberToMultiplyBy; i++) {
-            textToDuplicate += textToDuplicate;
+    public void calculating() {
+        int i = 1;
+        while (i < numberToMultiplyBy){
+            textToDuplicate+= textToDuplicate;
+            i++;
         }
+
     }
-    public void settingText(){
+
+    public void settingText() {
         resultsDisplay.setText(textToDuplicate);
-resultsDisplay.setText("hi");
+    }
+
+    public void defineValues() {
+        mainInput = (EditText) findViewById(R.id.text_to_duplicate_edit_text);
+        multiplier = (EditText) findViewById(R.id.duplication_number_edit_text);
+        calculate = (Button) findViewById(R.id.duplicate_button);
+        resultsDisplay = (TextView) findViewById(R.id.results_printed);
     }
 }
